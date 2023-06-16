@@ -1,3 +1,31 @@
+"""
+This Python script implements a Multi-Armed Bandit problem using the epsilon-greedy algorithm with hints. 
+
+The code is structured as follows:
+
+1. Class `MultiArmBandit`: This class represents the multi-armed bandit. It includes:
+    - `__init__`: Initializes the bandit with `k` arms, each with a reward value (`q_star`) randomly assigned between 0 and 1. 
+    It also accepts a standard deviation parameter (`stdev`) for the Gaussian distribution of rewards.
+    - `pull`: Simulates pulling an arm of the bandit, which returns a reward. The reward follows a Gaussian distribution 
+    centered at the true reward value (`q_star`) for the chosen arm, with a provided standard deviation (`stdev`).
+    - `hint`: Provides a hint about the best action (arm with the maximum reward) with a 50% chance. Otherwise, 
+    it randomly selects an action.
+
+2. Function `epsilon_greedy_with_hints`: This function implements the epsilon-greedy strategy with an added hint mechanism.
+It accepts the following parameters:
+    - `bandit`: An instance of the `MultiArmBandit` class.
+    - `epsilon`: The probability with which a random action is selected, representing the exploration rate.
+    - `hint_prob`: The probability with which the agent uses a hint (if available) to select an action.
+    - `num_steps`: The number of actions (arm pulls) to be performed.
+   The function tracks and returns the actions taken, rewards obtained, and hints provided during the interaction with the bandit.
+
+3. Example Usage: This part of the script demonstrates how to create a `MultiArmBandit` instance and 
+how to apply the `epsilon_greedy_with_hints` function. It shows the usage both with and without the use of hints and 
+prints the average rewards obtained, the hints provided, and the actions taken.
+
+Please note, the random nature of this problem implies that the outputs will vary between different runs of the script.
+"""
+
 import random
 import numpy as np
 

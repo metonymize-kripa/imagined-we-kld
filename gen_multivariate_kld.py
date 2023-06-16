@@ -1,3 +1,25 @@
+"""
+This script calculates the Kullback-Leibler Divergence (KLD) between two 4-dimensional Gaussian data simulators. The KLD is a measure of the difference between two probability distributions.
+
+Here's a brief overview of the script:
+
+1. The `kl_divergence` function computes the KLD between two input probability distributions (p and q) using scipy's entropy function.
+2. The `data_simulator` function generates data samples from a function, passed as an argument, that simulates the desired data distribution.
+3. The lambda function `my_gaussian_simulator_builder` is used to define 4-dimensional Gaussian simulators, where `m` is the mean and `s` is the covariance matrix.
+4. We define the means (`mean1`, `mean2`) and covariance matrices (`cov1`, `cov2`) for the two Gaussian distributions.
+5. The Gaussian simulators (`mygsim_0_1`, `mygsim_0_2`) are then created using the `my_gaussian_simulator_builder` function.
+6. We generate data samples (`data1`, `data2`) from the two Gaussian simulators.
+7. The Probability Density Functions (PDFs) of the two sets of data are estimated using scipy's `gaussian_kde` function.
+8. The PDFs are then evaluated on a 4-dimensional grid.
+9. Finally, the script calculates and prints the KLD between the two simulated Gaussian distributions.
+
+Note: The parameters (mean and covariance) of the Gaussian distributions and the number of samples (n) are set for this specific run 
+but can be modified as needed. 
+
+WARNING: Using more than a small value of n (around 10) could cause the program to freeze due to the amount of memory needed.
+"""
+
+
 import numpy as np
 from scipy.stats import gaussian_kde, entropy
 

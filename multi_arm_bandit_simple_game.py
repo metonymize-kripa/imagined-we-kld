@@ -1,3 +1,23 @@
+"""
+This Python script implements a simple simulation of a multi-armed bandit game. The bandit has three arms, named A, B, and C. 
+Each arm, when pulled, provides a random reward between 0 and 1. The player is given five tries to pull an arm and collect the reward. 
+The game continues, asking the player for an arm to pull until all tries are exhausted.
+
+Key components of the script:
+
+1. 'num_arms': Specifies the number of arms on the bandit.
+2. 'arm_names': List of names for the arms.
+3. 'rewards': Randomly generated list of rewards for each arm.
+4. 'max_tries': The number of times the player can pull an arm.
+5. 'play_game()': Function that conducts one round of the game. It prompts the player to choose an arm, 
+checks if the input is valid, 
+then reveals the reward for the chosen arm.
+6. 'main()': The main driver function. It starts the game, manages the score across multiple rounds, 
+and calculates and prints the average score at the end of the game. It also reveals the hidden rewards of each bandit arm at the end of the game.
+
+Please note that the reward for each arm remains constant for the entire game, but is unknown to the player.
+"""
+
 import random
 
 # Define the number of arms

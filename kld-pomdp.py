@@ -1,3 +1,30 @@
+"""
+This Python script simulates Partially Observable Markov Decision Processes (POMDPs) and calculates the Kullback-Leibler Divergence (KLD) 
+between two such processes.
+
+The POMDP class creates a POMDP with specified numbers of states, actions, and observations. 
+Each POMDP is characterized by a set of transition probabilities and observation probabilities, 
+both randomly initialized and then normalized to sum to 1.
+
+The step() method in the POMDP class simulates a single time step in the POMDP, given a current state and action, 
+returning the next state and observation.
+
+The data_simulator function simulates a number of steps through a given POMDP, 
+given an initial state and a policy function that determines the action to take in each state.
+
+The kl_divergence function calculates the Kullback-Leibler Divergence between two probability distributions. 
+This function uses the entropy function from the scipy.stats library.
+
+Two POMDPs are created and data is simulated from each using a random policy. 
+The simulated data is flattened and a Gaussian Kernel Density Estimator (KDE) is fitted to each dataset. 
+The PDFs of these KDEs are evaluated over a linear space that spans the range of the two datasets.
+
+The Kullback-Leibler Divergence is then computed between these two PDFs and printed to the console.
+
+Please note that the script uses numpy for numerical operations and scipy.stats for statistical functions like gaussian_kde and entropy.
+"""
+
+
 import numpy as np
 from scipy.stats import gaussian_kde, entropy
 
